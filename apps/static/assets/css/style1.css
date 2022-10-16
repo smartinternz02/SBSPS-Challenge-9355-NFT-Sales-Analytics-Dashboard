@@ -1,0 +1,146 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgba(250,160, 160)
+}
+.header {
+    text-align: center;
+    font: 100px;
+    font-family:'Times New Roman', Times, serif; 
+    overflow: auto;  
+}
+.header h1{
+    font-size: 60px;
+}
+.header h3{
+    font-size: 40px;
+}
+.container{
+    width: 1340px;
+    height:1100px;
+    padding: 5px;
+}
+.card-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 30px;
+}
+.card{
+    position: relative;
+    background: #fff;
+    max-width: 325px;
+    width: 325px;
+    height:auto;
+    margin: 25px;
+    box-shadow: 0 25px 25px rgb(1 1 1 /20%);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.card-image{
+    max-height: 200px;
+}
+.card-image img{
+    max-width: 100%;
+    height: auto;
+}
+.card-info{
+    position: relative;
+    color: #222;
+    padding: 10px 20px 20px;
+    height: 265px;
+}
+.pagination{
+    text-align: center;
+    margin: 30px 30px 60px;
+    user-select: none; 
+}
+.pagination li{
+    display: inline-block;
+    margin: 5px;
+    box-shadow: 0 5px 25px rgb(1 1 1 /10%);
+}
+.previous-page,.next-page{
+    background:rgba(60,100,250);
+    width: 80px;
+    border-radius: 45px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.current-page,.dots{
+    background:rgb(65,225,80) ;
+    width: 45px;
+    border-radius: 45px;
+    cursor: pointer;
+}
+.pagination li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    line-height: 45px;
+}
+.previous-page:hover{
+    transform: translateX(-5px);
+}
+.next-page:hover{
+    transform: translateX(5px);
+}
+.active{
+    background: skyblue;
+}
+.disable{
+    background: #ccc;
+}
+h3{
+    font-size: 18px;
+}
+.card-above{
+    width: 100%;
+    height:80px;
+    text-align: justify;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.card-above h3{
+    font-size: 18px;
+}
+.card-below{
+    width: 100%;
+    height: 90px;
+    text-align: justify;
+    overflow: hidden;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.foot {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+}
+.foot a:link{
+    background-color: white;
+    color: black;
+    border: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+.foot a:hover{
+    background-color: green;
+    color: white;
+}
+a:link,a:visited,.footer a{
+    font-size: 25px;
+    text-align: justify;
+    color: black;
+    text-decoration: none;
+}
+a:hover, .footer a{
+    text-decoration: underline;
+}
+
+
+
