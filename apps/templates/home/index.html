@@ -1,0 +1,364 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-content">
+            <h3>Market Places Overview &#128064</h3>
+            <!-- [ Main Content ] start -->
+            <div class="row">
+                <!-- order-card start -->
+                <div class="col-md-6 col-xl-6">
+                    <div class="card bg-c-blue order-card">
+                        <div class="card-body">
+                            <h6 class="text-white">Trading Volume</h6>
+                            <h2 class="text-end text-white"><i class="feather icon-shopping-cart float-start"></i><span>{{data52}}</span></h2>
+                            <p class="m-b-0">Last 24 hours<span class="float-end"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-6">
+                    <div class="card bg-c-green order-card">
+                        <div class="card-body">
+                            <h6 class="text-white">Number of NFTs Sold</h6>
+                            <h2 class="text-end text-white"><i class="feather icon-tag float-start"></i><span>{{data51}}</span>
+                            </h2>
+                            <p class="m-b-0">Last 24 hours<span class="float-end"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <h3>Top Marketplaces by Volume</h3>
+                <div class="col-md-6 col-xl-4">
+                    <div class="card bg-c-yellow order-card">
+                        <div class="card-body">
+                            <h6 class="text-white">{{data41}}</h6>
+                            <h2 class="text-end text-white">&#129351 <span>{{data43}}</span></h2>
+                            <p class="m-b-0">Last 30 Days<span class="float-end">{{data42}}</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                    <div class="card bg-c-red order-card">
+                        <div class="card-body">
+                            <h6 class="text-white">{{data44}}</h6>
+                            <h2 class="text-end text-white">&#129352 <span>{{data45}}</span></h2>
+                            <p class="m-b-0">Last 30 Days<span class="float-end">{{data46}}</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                    <div class="card bg-c-purple order-card">
+                        <div class="card-body">
+                            <h6 class="text-white">{{data47}}</h6>
+                            <h2 class="text-end text-white">&#129353 <span>{{data48}}</span></h2>
+                            <p class="m-b-0">Last 30 Days<span class="float-end"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- order-card end -->
+     
+                <h3>Top Collections Leaderboard - Volume &#128176</h3>
+                <div class="col-md-12">
+                    <div class="card table-card">
+                        <div class="card-header">
+                            <div class="card-header-right">
+                                <div class="btn-group card-option">
+                                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="feather icon-more-horizontal"></i>
+                                    </button>
+                                    <ul class="list-unstyled card-option dropdown-menu dropdown-menu-end">
+                                        <li class="dropdown-item full-card"><a href="#"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                                        <li class="dropdown-item minimize-card"><a href="#"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
+                                        <li class="dropdown-item reload-card"><a href="#"><i class="feather icon-refresh-cw"></i> reload</a></li>
+                                        <li class="dropdown-item close-card"><a href="#"><i class="feather icon-trash"></i> remove</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <ul class="nav nav-pills nav-fill mt-3 border-bottom pb-3" id="pills-tab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="pills-eth-tab" data-bs-toggle="pill" href="#pills-eth" role="tab" aria-controls="pills-eth" aria-selected="true"><i class="feather icon-file-text m-r-5"></i> ETHEREUM</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="pills-polygon-tab" data-bs-toggle="pill" href="#pills-polygon" role="tab" aria-controls="pills-polygon" aria-selected="false"><i class="feather icon-file-text m-r-5"></i> POLYGON</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-eth" role="tabpanel" aria-labelledby="pills-eth-tab">
+                                    <div class="table-responsive">
+                                        <div class="customer-scroll" style="position:relative;">
+                                            <table class="table table-hover m-b-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th><span>Collection Address <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                        <th><span>Market Value <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                        <th><span>Change in Percent <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                        <th><span>Floor Price <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                        <th><span>Items Count <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                        <th><span>Owners Count<a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="api1">
+                                                                                                     
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pills-polygon" role="tabpanel" aria-labelledby="pills-polygon-tab">
+                                    <div class="table-responsive">
+                                        <div class="customer-scroll2" style="position:relative;">
+                                            <table class="table table-hover m-b-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th><span>Collection Address <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                        <th><span>Market Value <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                        <th><span>Change in Percent<a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                        <th><span>Items Count <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                        <th><span>Owners Count <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="api3">
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <h3>Top Sellers and Buyers Leaderboard &#129297</h3>
+                    <div class="col-md-12">
+                        <div class="card table-card">
+                            <div class="card-header">
+                                <h5>Top Sellers Leaderboard across <a href='https://opensea.io/'>Opensea</a> Marketplace (24 H)</h5>
+                                <div class="card-header-right">
+                                    <div class="btn-group card-option">
+                                        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="feather icon-more-horizontal"></i>
+                                        </button>
+                                        <ul class="list-unstyled card-option dropdown-menu dropdown-menu-end">
+                                            <li class="dropdown-item full-card"><a href="#"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                                            <li class="dropdown-item minimize-card"><a href="#"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
+                                            <li class="dropdown-item reload-card"><a href="#"><i class="feather icon-refresh-cw"></i> reload</a></li>
+                                            <li class="dropdown-item close-card"><a href="#"><i class="feather icon-trash"></i> remove</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <ul class="nav nav-pills nav-fill mt-3 border-bottom pb-3" id="pills-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="pills-openseas-tab" data-bs-toggle="pill" href="#pills-os" role="tab" aria-controls="pills-os" aria-selected="true"><i class="feather icon-file-text m-r-5"></i> OPENSEA</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-os" role="tabpanel" aria-labelledby="pills-openseas-tab">
+                                        <div class="table-responsive">
+                                            <div class="customer-scroll" style="position:relative;">
+                                                <table class="table table-hover m-b-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th><span>Seller Address <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                            <th><span>Market Value <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                            <th><span>Exchanged Items <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                            <th><span>Transactions <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="api4">
+                                                                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12 ">
+                        <div class="card table-card">
+                            <div class="card-header">
+                                <h5>Top Buyers Leaderboard across <a href='https://opensea.io/'>Opensea</a> and <a href="https://rarible.com/">Rarible</a>(24 H)</h5>
+                                <div class="card-header-right">
+                                    <div class="btn-group card-option">
+                                        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="feather icon-more-horizontal"></i>
+                                        </button>
+                                        <ul class="list-unstyled card-option dropdown-menu dropdown-menu-end">
+                                            <li class="dropdown-item full-card"><a href="#"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                                            <li class="dropdown-item minimize-card"><a href="#"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
+                                            <li class="dropdown-item reload-card"><a href="#"><i class="feather icon-refresh-cw"></i> reload</a></li>
+                                            <li class="dropdown-item close-card"><a href="#"><i class="feather icon-trash"></i> remove</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <ul class="nav nav-pills nav-fill mt-3 border-bottom pb-3" id="pills-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="pills-openseab-tab" data-bs-toggle="pill" href="#pills-ob" role="tab" aria-controls="pills-ob" aria-selected="true"><i class="feather icon-film m-r-5"></i> OPENSEA</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-ob" role="tabpanel" aria-labelledby="pills-openseab-tab">
+                                        <div class="table-responsive">
+                                            <div class="customer-scroll" style="position:relative;">
+                                                <table class="table table-hover m-b-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th><span>Buyer Address <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                            <th><span>Market Value <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                            <th><span>Exchanged Items <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                            <th><span>Transactions <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="api6">
+                                                                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>     
+                
+                <h3>Top Trending Collections &#128293</h3>
+                <div class="col-md-12">
+                    <div class="card table-card">
+                        <div class="card-header">
+                            <div class="card-header-right">
+                                <div class="btn-group card-option">
+                                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="feather icon-more-horizontal"></i>
+                                    </button>
+                                    <ul class="list-unstyled card-option dropdown-menu dropdown-menu-end">
+                                        <li class="dropdown-item full-card"><a href="#"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                                        <li class="dropdown-item minimize-card"><a href="#"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
+                                        <li class="dropdown-item reload-card"><a href="#"><i class="feather icon-refresh-cw"></i> reload</a></li>
+                                        <li class="dropdown-item close-card"><a href="#"><i class="feather icon-trash"></i> remove</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <ul class="nav nav-pills nav-fill mt-3 border-bottom pb-3" id="pills-tab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link" id="pills-polygontrend-tab" data-bs-toggle="pill" href="#pills-polygontrend" role="tab" aria-controls="pills-polygontrend" aria-selected="false"><i class="feather icon-mail m-r-5"></i> Last 1 Month</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade" id="pills-polygontrend" role="tabpanel" aria-labelledby="pills-polygontrend-tab">
+                                    <div class="table-responsive">
+                                        <div class="customer-scroll2" style="position:relative;">
+                                            <table class="table table-hover m-b-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th><span>Collection Address <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                        <th><span>Market Value <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                        <th><span>Change in Percent <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                        <th><span>Floor Price<a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                        <th><span>Items Count <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                        <th><span>Owners Count <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="api10">
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-12">
+                    <div class="card table-card">
+                        <div class="card-header">
+                            <h5>Top Minting Collections</h5>
+                            <div class="card-header-right">
+                                <div class="btn-group card-option">
+                                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="feather icon-more-horizontal"></i>
+                                    </button>
+                                    <ul class="list-unstyled card-option dropdown-menu dropdown-menu-end">
+                                        <li class="dropdown-item full-card"><a href="#"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                                        <li class="dropdown-item minimize-card"><a href="#"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
+                                        <li class="dropdown-item reload-card"><a href="#"><i class="feather icon-refresh-cw"></i> reload</a></li>
+                                        <li class="dropdown-item close-card"><a href="#"><i class="feather icon-trash"></i> remove</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <ul class="nav nav-pills nav-fill mt-3 border-bottom pb-3" id="pills-tab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="pills-mintsm5-tab" data-bs-toggle="pill" href="#pills-mintsm5" role="tab" aria-controls="pills-mintsm5" aria-selected="true"><i class="feather icon-film m-r-5"></i> Last 7 Days</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-mintsm5" role="tabpanel" aria-labelledby="pills-mintsm5-tab">
+                                    <div class="table-responsive">
+                                        <div class="customer-scroll" style="position:relative;">
+                                            <table class="table table-hover m-b-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th><span>Collection Address <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                        <th><span>Number Of Mints <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                        <th><span>Total Items Count <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="api11">
+                                                                                                     
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+                <!-- account-section end -->
+                <!-- Customer overview start -->
+                
+                <!-- Customer overview end -->
+            </div>
+            <!-- [ Main Content ] end -->
+        </div>
+    </div>
+    <!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+    <!-- Apex Chart -->
+    <script src="/static/assets/js/plugins/apexcharts.min.js"></script>
+
+    <!-- custom-chart js -->
+    <script src="/static/assets/js/pages/dashboard-main.js"></script>
+
+    <script src="/static/assets/js/pages/apis.js"></script>
+
+{% endblock javascripts %}

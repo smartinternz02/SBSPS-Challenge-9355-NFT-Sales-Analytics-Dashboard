@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFT ARTICLES</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" charset="utf-8">
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif
+        }
+        body{
+            background-color: rgb(255, 255, 255)
+        }
+        .header {
+            text-align: center;
+            font: 100px;
+            overflow: auto;  
+        }
+        .header h1{
+            font-size: 60px;
+        }
+        .header h3{
+            font-size: 40px;
+        }
+        .container{
+            width: 1340px;
+            height:1100px;
+            padding: 5px;
+        }
+        .card-content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 30px;
+        }
+        .card{
+            position: relative;
+            background: #fff;
+            max-width: 325px;
+            width: 325px;
+            height:auto;
+            margin: 25px;
+            box-shadow: 0 25px 25px rgb(1 1 1 /20%);
+            border-radius: 10px;
+            overflow:auto;
+        }
+        .card-image{
+            max-height: 200px;
+        }
+        .card-image img{
+            max-width: 100%;
+            height: auto;
+        }
+        .card-info{
+            position: relative;
+            color: #222;
+            padding: 10px 20px 20px;
+            height: 280px;
+        }
+        .pagination{
+            text-align: center;
+            margin: 30px 30px 60px;
+            user-select: none; 
+        }
+        .pagination li{
+            display: inline-block;
+            margin: 5px;
+            box-shadow: 0 5px 25px rgb(1 1 1 /10%);
+        }
+        .previous-page, .next-page{
+            background:rgba(60,100,250);
+            width: 80px;
+            border-radius: 45px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .current-page,.dots{
+            background:rgb(65,225,80) ;
+            width: 45px;
+            border-radius: 45px;
+            cursor: pointer;
+        }
+        .pagination li a{
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            line-height: 45px;
+        }
+        .previous-page:hover{
+            transform: translateX(-5px);
+        }
+        .next-page:hover{
+            transform: translateX(5px);
+        }
+        .active{
+            background: skyblue;
+        }
+        .disable{
+            background: #ccc;
+        }
+        h3{
+            font-size: 18px;
+        }
+        .card-above{
+            width: 100%;
+            height:80px;
+            text-align: justify;
+        }
+        .card-above h3{
+            font-size: 18px;
+        }
+        .card-below{
+            width: 100%;
+            height: 105px;
+            text-align: justify;
+            overflow: hidden;
+        }
+        .foot {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            text-align: center;
+        }
+        a:link,a:visited,.footer a{
+            font-size: 25px;
+            text-align: justify;
+            color: black;
+            text-decoration: none;
+        }
+        a:hover, .footer a{
+            text-decoration: underline;
+        }
+        .button{
+            border: none;
+            font-size: 16px;
+            color: #FFF;
+            padding: 8px 16px;
+            background-color: #4070F4;
+            border-radius: 6px;
+            margin: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .button:hover{
+            background: #265DF2;
+        }
+        @media screen and (max-width: 600px) {
+            .header h1{
+                font-size: 40px;
+            }
+            .header h3{
+                font-size: 30px;
+            }
+            .container{
+                width: 100%;
+                height: 550px;
+                padding: 5px;
+            }
+            .card{
+                background: #fff;
+                max-width: 325px;
+                width: 325px;
+                height:auto;
+                margin: 10px;
+                box-shadow: 0 25px 25px rgb(1 1 1 /20%);
+                border-radius: 10px;
+                align-items: center;
+                justify-content: space-between;
+                box-sizing: border-box;
+                overflow: none;
+            }
+            .card-content{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                margin: 30px 20px;
+            }
+            .pagination{
+                text-align: center;
+                margin: 2520px 20px 30px;
+                user-select: none; 
+            }
+            .pagination li{
+                display: inline-block;
+                margin: 5px;
+                box-shadow: 0 5px 25px rgb(1 1 1 /10%);
+            }
+            .button{
+                border: none;
+                font-size: 16px;
+                color: #FFF;
+                padding: 8px 16px;
+                background-color: #4070F4;
+                border-radius: 6px;
+                margin: 14px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+              }
+              .button:hover{
+                background: #265DF2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <br><br>
+        <h1><b>TOP NFT ARTICLES</b></h1>
+        <br><br>
+        <h3>&#11088  All you need to know about NFTs  &#11088</h3>
+    </div>
+    <div class="row">
+        <div class="column">
+            <div class="container">
+                <div class="card-content">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmyventurepad.com%2Fwp-content%2Fuploads%2F2021%2F07%2Fnft-696x464.png&f=1&nofb=1&ipt=d42eda04b0295a8b80f00290ce9b86dd15d7a923483e8e7b1be9c73424894d6d&ipo=images" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://www.nft.com/" target="_blank">
+                                <h3>Non-Fungible Token (NFT)</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>Collect, Display, and Trade your NFTs. We're building the hub for all things Web3. Get started by building your NFT Profile...</p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://www.nft.com/" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.DzRF_PeApDh7H3b7APVkhwHaE7%26pid%3DApi&f=1&ipt=8f51b11e95ef1ef2870468c68f4a7696875ac1547afde3b7bfdee7bdf97150d7&ipo=images" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://spiceworks.com/tech/innovation/articles/what-is-nft-non-fungible-token/" target="_blank"><h3>What is an Non - Fungible Token? Definition, Working, Uses and Examples</h3></a>
+                            </div>
+                            <div class="card-below">
+                                <p>NFT, short for a non-fungible token, is defined as a blockchain record intrinsically connected to a real word or digital asset with  ...</p>
+                            </div> 
+                            <div class="foot">
+                                <a href="https://spiceworks.com/tech/innovation/articles/what-is-nft-non-fungible-token/" target="_blank"><button class="button">View More</button></a>
+                            </div> 
+                        </div>
+                    </div>
+        
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/uk/advisor/wp-content/uploads/2022/05/best-nft-marketplaces.jpeg" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://www.forbes.com/uk/advisor/investing/cryptocurrency/best-nft-marketplaces/" target="_blank"><h3>Top NFT Marketplaces Of 2022 by FORBES ADVISOR</h3></a>
+                            </div>
+                            <div class="card-below">
+                                <p>Non-Fungible Tokens (NFTs) give you ownership of artwork, music, videos and other online collectibles. They exist on ...</p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://www.forbes.com/uk/advisor/investing/cryptocurrency/best-nft-marketplaces/" target="_blank"><button class="button">View More</button></a>
+                            </div>  
+                        </div>
+                    </div> 
+                    
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://www.financialexpress.com/wp-content/uploads/2022/03/metaverse-basics.jpg" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://www.financialexpress.com/blockchain/metaverse-basics-how-to-enter-importance-of-nfts-and-future-use-cases-you-should-know/2466336/" target="_blank">
+                                <h3>Metaverse Basics: How to Enter, Importance of NFTs and Future Use Cases</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>Metaverse has become the talk of the town with tech giants hovering to enhance our digital lives. The idea of a huge virtual online .... </p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://www.financialexpress.com/blockchain/metaverse-basics-how-to-enter-importance-of-nfts-and-future-use-cases-you-should-know/2466336/" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://101blockchains.com/wp-content/uploads/2022/06/NFT-vs-Metaverse-702x336.webp" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://101blockchains.com/nft-vs-metaverse/" target="_blank">
+                                <h3>NFT Vs Metaverse – Key Differences</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>The top points of discussion in the world of technology right now revolve around the creation of new digital assets. With every aspect ...</p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://101blockchains.com/nft-vs-metaverse/" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://imageio.forbes.com/specials-images/imageserve/6066293c4676e682b49db3b9/Mature-businessman-wearing-VR-glasses-in-office/960x0.jpg?format=jpg&width=960" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://www.forbes.com/sites/forbestechcouncil/2022/03/11/what-is-the-role-of-nfts-in-the-metaverse/?sh=5bfeafd46bb8" target="_blank">
+                                <h3>What Is The Role Of NFTs In The Metaverse?</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>Two hot topics, two areas of huge potential for businesses. That is how NFTs and the metaverse can be described. While these ........</p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://www.forbes.com/sites/forbestechcouncil/2022/03/11/what-is-the-role-of-nfts-in-the-metaverse/?sh=5bfeafd46bb8" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://cdn.decrypt.co/resize/1536/wp-content/uploads/2022/10/bored-ape-y00ts-sept-22-gID_4.png.webp" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://decrypt.co/111151/nft-market-sales-solana-ethereum" target="_blank">
+                                <h3>NFT Monthly Sales Top $947M as Solana Gains Ground on Ethereum</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>Solana NFT sales volume nearly doubled last month as the wider market remains largely flat—down roughly 82% from January highs ...</p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://decrypt.co/111151/nft-market-sales-solana-ethereum" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://originstamp.com/blog/top-5-blockchains-for-nft-development/nft_hu3d03a01dcc18bc5be0e67db3d8d209a6_4595240_1126x600_fill_q80_box_smart1.jpeg" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://originstamp.com/blog/top-5-blockchains-for-nft-development/" target="_blank">
+                                <h3>Top 5 Blockchains for NFT Development</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>NFT, or non-fungible token is a blockchain-based technology that integrates any piece of digital data on a decentralized ledger ...</p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://originstamp.com/blog/top-5-blockchains-for-nft-development/" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://images.indianexpress.com/2022/04/Untitled-design-2022-04-18T165842.359.jpg" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://indianexpress.com/article/technology/crypto/want-to-create-and-sell-nfts-here-are-top-5-nft-marketplaces-7874508/" target="_blank">
+                                <h3>Want to create and sell NFTs? A look at top 5 NFT marketplaces</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>Non-fungible-tokens (NFTs) have grow in popularity as celebrities and tech evangelists continue to jump onto the cryptocurrency ...</p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://indianexpress.com/article/technology/crypto/want-to-create-and-sell-nfts-here-are-top-5-nft-marketplaces-7874508/" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://nonfungible.com/_next/image?url=http%3A%2F%2F100.96.1.66%3A3001%2Fapp%2Fuploads%2F2022%2F07%2Fquarterly-nft-market-report-Q2-2022_16_9.jpg&w=1920&q=75" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://nonfungible.com/news/corporate/nft-market-report-q2-2022" target="_blank">
+                                <h3>NFT Market Report Q2 2022: A massive 25% USD Traded Drop</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>Over Q2 2022, the NFT industry has once again entered a building phase. Download our free Quarterly NFT Market Report ...</p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://nonfungible.com/news/corporate/nft-market-report-q2-2022" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://nonfungible.com/_next/image?url=http%3A%2F%2F100.96.1.66%3A3001%2Fapp%2Fuploads%2F2022%2F07%2FNFT-Academy-NonFungible_16-9-1.jpg&w=1920&q=75" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://nonfungible.com/news/corporate/presenting-nft-academy" target="_blank">
+                                <h3>Learn All About the NFTs and Their Ecosystem with Our NFT Academy</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>Introducing the NFT Academy: a thorough guide for every newcomer and aficionado eager to deepen their knowledge about this ...</p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://nonfungible.com/news/corporate/presenting-nft-academy" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://nonfungible.com/_next/image?url=http%3A%2F%2F100.96.1.66%3A3001%2Fapp%2Fuploads%2F2022%2F07%2Fnftnyc-2022-169.jpg&w=1920&q=75" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://nonfungible.com/news/corporate/nftnyc-2022-report" target="_blank">
+                                <h3>Our NFT.NYC 2022 Report</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>We went to the 4th edition of the NFT.NYC which took place in New York from June 20 to 23,2022. Here are our impressions of the ...</p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://nonfungible.com/news/corporate/nftnyc-2022-report" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://nonfungible.com/_next/image?url=http%3A%2F%2F100.96.1.66%3A3001%2Fapp%2Fuploads%2F2021%2F10%2Fextract-data-nonfungible-169-1.jpg&w=1920&q=75" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://nonfungible.com/news/corporate/how-to-extract-nft-data-from-nonfungible-com" target="_blank"><h3>How to extract NFT data from NonFungible.com?</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>Many of you regularly ask us for data about NFTs and we do our utmost to respond to each of your requests, but did you know ... </p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://nonfungible.com/news/corporate/how-to-extract-nft-data-from-nonfungible-com" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://cdn.decrypt.co/resize/1536/wp-content/uploads/2022/09/ethereum-nfts-gID_4.png.webp" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://decrypt.co/108862/what-ethereum-merge-means-for-nfts" target="_blank">
+                                <h3>What the Ethereum Merge Means for NFTs</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>Are your NFTs safe? What’s up with duplicate NFTs on forked chains? Developers and builders answer these and other questions ...</p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://decrypt.co/108862/what-ethereum-merge-means-for-nfts" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://nonfungible.com/_next/image?url=http%3A%2F%2F100.96.1.66%3A3001%2Fapp%2Fuploads%2F2021%2F05%2Fnonfungible-x-ubisoft-169.jpg&w=1920&q=75" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://nonfungible.com/news/corporate/nonfungible-joins-ubisoft-entrepreneur-labs" target="_blank">
+                                <h3>Nonfungible.com joins the Ubisoft Entrepreneurs Lab</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>We're glad to announce that we've been accepted to the Entrepreneur Lab program from Ubisoft! A new adventure is starting for us ....</p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://nonfungible.com/news/corporate/nonfungible-joins-ubisoft-entrepreneur-labs" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://nonfungible.com/_next/image?url=http%3A%2F%2F100.96.1.66%3A3001%2Fapp%2Fuploads%2F2022%2F05%2Fcommitment-nonfungible-169.jpg&w=1920&q=75" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://nonfungible.com/news/corporate/commitment-building-better-web3" target="_blank">
+                                <h3>Our commitment to building a better Web3</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>We’re providing free NFT data & reports to give you the most accurate overview of the NFT market. Here’s how to use our ...  </p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://nonfungible.com/news/corporate/commitment-building-better-web3" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://nonfungible.com/_next/image?url=http%3A%2F%2F100.96.1.66%3A3001%2Fapp%2Fuploads%2F2022%2F04%2Fquarterly-nft-market-report-q1-2022-169.jpg&w=1920&q=75" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://nonfungible.com/news/corporate/nft-market-report-q1-2022" target="_blank">
+                                <h3>Our NFT Market Report Q1 2022 is published</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>Following the publication of our annual performance report of the 2021 NFT market, 2022 starts with a more complex global-political ...</p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://nonfungible.com/news/corporate/nft-market-report-q1-2022" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://nonfungible.com/_next/image?url=http%3A%2F%2F100.96.1.66%3A3001%2Fapp%2Fuploads%2F2021%2F03%2F16-9-Metapurse2.png&w=1920&q=75" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://nonfungible.com/news/corporate/metapurse-fund-portfolio-valuation" target="_blank">
+                                <h3>MetaPurse Fund – Portfolio Valuation</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>NonFungible.com has valuated the portfolio of the MetaPurse Fund, founded by MetaKovan: the buyers of the $69M Beeple artwork ....</p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://nonfungible.com/news/corporate/metapurse-fund-portfolio-valuation" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://nonfungible.com/_next/image?url=http%3A%2F%2F100.96.1.66%3A3001%2Fapp%2Fuploads%2F2022%2F04%2Fpresenting-new-nonfungible-169.jpg&w=1920&q=75" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://nonfungible.com/news/corporate/presenting-new-nonfungible-identity" target="_blank">
+                                <h3>Presenting the New NonFungible.com Identity</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>In a year NonFungible.com has grown from Dan & Zoup to a team of 15 employees. Our visual identity needed to evolve to match ...</p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://nonfungible.com/news/corporate/presenting-new-nonfungible-identity" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://nonfungible.com/_next/image?url=http%3A%2F%2F100.96.1.66%3A3001%2Fapp%2Fuploads%2F2022%2F04%2FNFC-Conference-lisbon-169.jpg&w=1920&q=75" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://nonfungible.com/news/corporate/nfc-2022-building-nft-europe-with-passion" target="_blank">
+                                <h3>NFC 2022: Building NFT Europe with passion</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>We were at the Non Fungible Conference 2022 which took place in Lisbon, Portugal. Here is our report of the event! .......</p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://nonfungible.com/news/corporate/nfc-2022-building-nft-europe-with-passion" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://nonfungible.com/_next/image?url=http%3A%2F%2F100.96.1.66%3A3001%2Fapp%2Fuploads%2F2021%2F11%2FNFT-NYC-2021-169.jpg&w=1920&q=75" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://nonfungible.com/news/corporate/our-report-about-nftnyc" target="_blank">
+                                <h3>Our report from NFT.NYC 2021</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>This year, the NFT.NYC took place in a bigger place, with more people, more talks and more activities. Here's what we saw over ...</p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://nonfungible.com/news/corporate/our-report-about-nftnyc" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://nonfungible.com/_next/image?url=http%3A%2F%2F100.96.1.66%3A3001%2Fapp%2Fuploads%2F2022%2F03%2Fold_vs_new.gif&w=1920&q=75" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://nonfungible.com/news/corporate/website-redesign-2022" target="_blank">
+                                <h3>Welcome to a new NonFungible.com era</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>As you may have noticed, the NonFungible.com website has received a proper face lift! After four years of good service: ........</p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://nonfungible.com/news/corporate/website-redesign-2022" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://nonfungible.com/_next/image?url=http%3A%2F%2F100.96.1.66%3A3001%2Fapp%2Fuploads%2F2022%2F03%2FNFT-yearly-report-2021-nonfungible-169.jpg&w=1920&q=75" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://nonfungible.com/news/analysis/yearly-nft-market-report-2021" target="_blank">
+                                <h3>Our 2021 NFT Yearly Report is out!</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>You were waiting for it, we did it. Here is our 2021 annual report on NFTs with everything you need to know about NFTs in 2021! .........</p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://nonfungible.com/news/analysis/yearly-nft-market-report-2021" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://nonfungible.com/_next/image?url=http%3A%2F%2F100.96.1.66%3A3001%2Fapp%2Fuploads%2F2022%2F01%2F2021-NFT-yearly-report-169.jpg&w=1920&q=75" alt="" style="width:325px;height:200px;">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-above">
+                                <a href="https://nonfungible.com/news/corporate/preorder-yearly-nft-market-report-2021" target="_blank">
+                                <h3>Pre-order the Yearly NFT Market Report 2021!</h3></a>
+                            </div>   
+                            <div class="card-below">
+                                <p>2021 was rich in events, projects, recognition and partnerships for all actors in the ecosystem and now it's time to pre-order our 2021 ...</p>
+                            </div>
+                            <div class="foot">
+                                <a href="https://nonfungible.com/news/corporate/preorder-yearly-nft-market-report-2021" target="_blank"><button class="button">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pagination">
+        <li class="page-item previous-page disable"><a class="page-link" ref="#">Prev</a></li>
+        <li class="page-item current-page active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item dots"><a class="page-link" href="#">...</a></li>
+        <li class="page-item current-page"><a class="page-link" href="#">5</a></li>
+        <li class="page-item current-page"><a class="page-link" href="#">6</a></li>
+        <li class="page-item dots"><a class="page-link" href="#">...</a></li>
+        <li class="page-item current-page"><a class="page-link" href="#">10</a></li>
+        <li class="page-item next-page"><a class="page-link" href="#">Next</a></li>
+    </div> 
+    <script type="text/javascript">
+            function getPageList(totalPages, page, maxLength){
+                function range(start, end){
+                    return Array.from(Array(end - start + 1),(_,i)=>i + start);
+                }
+                
+                var sideWidth = maxLength <9 ? 1 : 2;
+                var leftWidth = (maxLength - sideWidth * 2 - 3) >> 1;
+                var rightWidth = (maxLength - sideWidth * 2 - 3) >> 1;
+
+                if (totalPages <= maxLength){
+                    return range(1, totalPages);
+                }
+                if(page <= maxLength - sideWidth - 1 - rightWidth){
+                    return range(1, maxLength - sideWidth - 1).concat(0, range(totalPages - sideWidth + 1,totalPages));
+                }
+                if(page >= totalPages - sideWidth - 1 - rightWidth){
+                    return range(1, sideWidth).concat(0, range(totalPages - sidewidth - 1 - rightWidth - leftWidth, totalPages));
+                }
+                return range(1, sideWidth).concat(0,range(page - leftWidth, page + rightWidth),0, range(totalPages - sideWidth + 1,totalPages));
+            }
+
+            $(function(){
+                var numberofItems = $(".card-content .card").length;
+                var limitPerPage = 6; //how many card items visible per a page
+                var totalPages = Math.ceil(numberofItems/ limitPerPage);
+                var paginationSize = 7; //how many page elements visible in the pagination
+                var currentPage;
+
+                function showPage(whichPage){
+                    if (whichPage < 1 || whichPage > totalPages) return false;
+                    
+                        currentPage=whichPage;
+                        $(".card-content .card").hide().slice((currentPage - 1) * limitPerPage, currentPage * limitPerPage).show();
+
+                        $(".pagination li").slice(1,-1).remove();
+
+                        getPageList(totalPages, currentPage, paginationSize).forEach(item => {
+                            $("<li>").addClass("page-item").addClass(item ? "current-page" :  "dots")
+                            .toggleClass("active",item === currentPage).append($("<a>").addClass("page-link")
+                            .attr({href: "javascript:void(0)"}).text(item || "...")).insertBefore(".next-page");
+                        });
+
+                        $(".previous-page").toggleClass("disable",currentPage===1);
+                        $(".next-page").toggleClass("disable",currentPage===totalPages);
+                        return true;
+                }
+                $(".pagination").append(
+                    $("<li>").addClass("page-item").addClass("previous-page").append($("<a>").addClass("page-link").attr({href:"javascript:void(0)"}).text("Prev")),
+                    $("<li>").addClass("page-item").addClass("next-page").append($("<a>").addClass("page-link").attr({href:"javascript:void(0)"}).text("Next"))
+                );
+                $(".card-content").show();
+                showPage(1);
+
+                $(document).on("click",".pagination li.current-page:not(.active)", function(){
+                    return showPage(+$(this).text());
+                });
+
+                $(".next-page").on("click",function(){
+                    return showPage(currentPage + 1)
+                });
+
+                $(".previous-page").on("click",function(){
+                    return showPage(currentPage - 1)
+                });
+            });
+    </script>
+</body>
+</html>

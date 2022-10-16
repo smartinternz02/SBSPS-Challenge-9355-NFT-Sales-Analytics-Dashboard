@@ -1,0 +1,193 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Sample page {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <img src="https://i.seadn.io/gae/Ju9CkWtV-1Okvf45wo8UctR-M9He2PjILP0oOvxE89AyiPPGtrR3gysu1Zgy0hjd2xKIgjJJtWIc0ybj4Vd7wv8t3pxDGHoJBzDB?w=500&auto=format" alt="" style="width:360px;height:325px;border-radius: 10px;">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <div class="card bg-c-purple order-card whale-card">
+                            <div class="card-body">
+                                <h2 class="text-white">Bored Ape Yacht Club</h2>
+                                <!-- <h2 class="text-end text-white"><span>Symbol</span></h2> -->
+                                <p class="m-b-0 text-white">Symbol<span class="float-end">BAYC</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <i class="fab fa-twitter text-c-blue f-20"></i>
+                                <p class="m-t-10"><span class="text-c-blue">{{data81s}}</span></p>
+                                <!-- <button class="btn btn-primary btn-sm btn-round">Manage List</button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card bg-c-green order-card">
+                    <div class="card-body">
+                        <h3 class="text-white">NFTs Sold</h3>
+                        <h2 class="text-end text-white"><span>{{data2as[0].text}}</span></h2>
+                        <p class="m-b-0"><span class="float-end">Last 7 days</span></p>
+                    </div>
+                </div>
+                <div class="card bg-c-red order-card">
+                    <div class="card-body">
+                        <h3 class="text-white">Trading Volume</h3>
+                        <h2 class="text-end text-white"><span>{{data2as[1].text}}</span></h2>
+                        <p class="m-b-0"><span class="float-end">Last 7 days</span></p>
+                    </div>
+                </div>
+                <div class="card bg-c-blue order-card">
+                    <div class="card-body">
+                        <h3 class="text-white">Average Price</h3>
+                        <h2 class="text-end text-white"><span>{{data2as[2].text}}</span></h2>
+                        <p class="m-b-0"><span class="float-end">Last 7 days</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card bg-c-blue order-card">
+                    <div class="card-body">
+                        <h3 class="text-white">Floor Price</h3>
+                        <h2 class="text-end text-white"><span>{{data2as[3].text}}</span></h2>
+                        <p class="m-b-0"><span class="float-end">Lowest Ask Price</span></p>
+                    </div>
+                </div>
+                <div class="card bg-c-red order-card">
+                    <div class="card-body">
+                        <h3 class="text-white">Total Supply</h3>
+                        <h2 class="text-end text-white"><span>{{data2as[4].text}}</span></h2>
+                        <p class="m-b-0"><span class="float-end">Number of Tokens</span></p>
+                    </div>
+                </div>
+                <div class="card bg-c-yellow order-card">
+                    <div class="card-body">
+                        <h3 class="text-white">Owners</h3>
+                        <h2 class="text-end text-white"><span>{{data2as[5].text}}</span></h2>
+                        <p class="m-b-0"><span class="float-end">Total Number of Owners</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+
+                <div class="card-header text-center">
+                    <h3>Recently Sold Out Collections &#128337 </h3>
+                </div>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <!-- <i class="fab fa-twitter text-c-green d-block f-40"></i> -->
+                        <img src="{{imagess[0]}}" alt="" style="width:360px;height:360px;border-radius: 10px;">
+                        <button class="btn btn-success btn-sm btn-round">Sold Out for : {{sold_prices[0]}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <img src="{{imagess[1]}}" alt="" style="width:360px;height:360px;border-radius: 10px;">
+                        <button class="btn btn-success btn-sm btn-round">Sold Out for : {{sold_prices[1]}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                       <img src="{{imagess[2]}}" alt="" style="width:360px;height:360px;border-radius: 10px;">
+                        <button class="btn btn-success btn-sm btn-round">Sold Out for : {{sold_prices[2]}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <!-- <i class="fab fa-twitter text-c-green d-block f-40"></i> -->
+                        <img src="{{imagess[4]}}" alt="" style="width:360px;height:360px;border-radius: 10px;">
+                        <button class="btn btn-success btn-sm btn-round">Sold Out for : {{sold_prices[4]}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <img src="{{imagess[5]}}" alt="" style="width:360px;height:360px;border-radius: 10px;">
+                        <button class="btn btn-success btn-sm btn-round">Sold Out for : {{sold_prices[5]}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                       <img src="{{imagess[6]}}" alt="" style="width:360px;height:360px;border-radius: 10px;">
+                        <button class="btn btn-success btn-sm btn-round">Sold Out for : {{sold_prices[6]}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <!-- <i class="fab fa-twitter text-c-green d-block f-40"></i> -->
+                        <img src="{{imagess[7]}}" alt="" style="width:360px;height:360px;border-radius: 10px;">
+                        <button class="btn btn-success btn-sm btn-round">Sold Out for : {{sold_prices[7]}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <img src="{{imagess[8]}}" alt="" style="width:360px;height:360px;border-radius: 10px;">
+                        <button class="btn btn-success btn-sm btn-round">Sold Out for : {{sold_prices[8]}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                       <img src="{{imagess[9]}}" alt="" style="width:360px;height:360px;border-radius: 10px;">
+                        <button class="btn btn-success btn-sm btn-round">Sold Out for : {{sold_prices[9]}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+	<!-- [ Main Content ] end -->
+    </div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+	<script src="/static/assets/js/plugins/apexcharts.min.js"></script>
+    <!-- custom-chart js -->
+    <script src="/static/assets/js/pages/dashboard-main.js"></script>
+
+    <script src="/static/assets/js/pages/app.js"></script>
+
+{% endblock javascripts %}

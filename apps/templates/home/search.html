@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search NFTs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> 
+</head>
+<body>
+    <div class="container">
+        <br><br>
+        <h1 style="text-align: center ;">NFTs Search Box</h1>
+        <form id="myForm" autocomplete="off">
+        <div class="form-group">
+            <input type="text" class="form-control" id="search" placeholder="search" required>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success btn-block">
+                Search for NFTs
+            </button>
+        </div>
+        </form>
+        <div style="text-align: center;" id="result">
+            
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $("#myForm").submit(function(event){
+        event.preventDefault()
+        var search=$("#search").val()
+        var url= "https://ethereum-api.rarible.org/v0.1/nft/collections/"+search
+        $.ajax({
+            method:'GET',
+            url:url,
+            success:function(data){
+                console.log(data)
+                document.querySelector('#result').innerHTML=`
+                <h1>${data.name}</h1>
+                <h3>${data.symbol}</h3>
+                <h2>Owner Address:<br>${data.owner}</h2>
+            ` 
+            }
+        })
+
+        
+    })
+</script>
+</html>
